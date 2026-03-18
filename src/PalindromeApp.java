@@ -10,16 +10,8 @@ public class PalindromeApp {
         System.out.print("Enter a string: ");
         String input = scanner.nextLine();
 
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        boolean isPalindrome = true;
-
-        for (int i = 0; i < normalized.length() / 2; i++) {
-            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
-        }
+        PalindromeService service = new PalindromeService();
+        boolean isPalindrome = service.checkPalindrome(input);
 
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
